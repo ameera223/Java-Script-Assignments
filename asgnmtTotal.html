@@ -1,0 +1,26 @@
+<html>
+    <head>
+        A Function in the Object, Order, to Calculate Total 
+<script>
+var order = {
+    orderNumber:10011,
+    customerName:'Vineesh',
+    customerMobile:'+911222111',
+    subTotal:25000,
+    taxAmount:490,
+    total: function(x,y){
+        var res=x+y;
+        console.log("Total = ",res)
+    }
+}   
+order.total(order.subTotal,order.taxAmount)
+console.log(document)
+//document.write("<h1>HELLO DOCUMENT</h1>")
+alert("hi")
+//document.body.style.display="none"
+</script>
+    </head>
+    <body>
+       
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <body>
+        Username:<input type="text" id="username"/><br/><br/>
+        Password:<input type="password" id="password"/><br/><br/>
+        <label style="color: red" id="errorMessage"></label><br/>
+        <button onclick="login()">Login</button>
+
+        <script>
+            async function login() {
+
+
+                var payload = {
+                    username: document.getElementById("username").value,
+                    password: document.getElementById("password").value,
+                };
+
+                    var response = await fetch('https://dummyjson.com/auth/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload),
+                    });
+
+                    if (response.status == 200) {
+                        var data = await response.json();
+                        document.getElementById("errorMessage").innerText = "Success..!" ;
+                        console.log("Token: "+data.token);
+                        document.cookie = "authToken=" + data.token 
+                                     + ";expires = Fri, 01 Nov 2024 12:00:00 UTC ";
+                    } else {
+                        document.getElementById("errorMessage").innerText = "Invalid Credentials";
+                    }
+            }
+        </script>
+    </body>
+</html>

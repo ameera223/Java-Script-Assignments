@@ -1,0 +1,38 @@
+<html>
+    <head>
+       <h1 style="color: brown;"> Highest Order Amount From Two Orders</h1>
+
+<script>
+    var order1 = {
+    orderNumber:10011,
+    customerName:'Muhammed',
+    customerMobile:'+911223331',
+    totalAmount:25000
+    }
+
+    var order2 = {
+    orderNumber:3411,
+    customerName:'Rajesh',
+    customerMobile:'+94545331',
+    totalAmount:48000
+    }
+
+    if (order1.totalAmount > order2.totalAmount){
+        console.log("Customer Name : "+order1.customerName) 
+        console.log("Highest Order Amount : "+order1.totalAmount)
+        var sum = order1.totalAmount+order2.totalAmount
+        console.log("Total Order Amount : "+sum)
+
+    }
+    else{
+        console.log("Customer Name : "+order2.customerName) 
+        console.log("Highest Order Amount : "+order2.totalAmount)
+        var sum = order1.totalAmount+order2.totalAmount
+        console.log("Total Order Amount : "+sum)
+    }
+</script>
+    </head>
+    <body>
+       
+    </body>
+</html>

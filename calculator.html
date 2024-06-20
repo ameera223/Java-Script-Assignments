@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <header></header>
+        <div>
+            <h1 style="color: rgb(38, 2, 74);">CALCULATOR</h1>
+        </div>
+       <span>
+       First Number : <input type = "text" id="fNum"/><br/><br/> 
+       Second Number : <input type = "text" id="sNum"/><br/><br/>
+       <button onclick="Add()" id="btnAdd">+</button>
+       <button onclick="Sub()" id="btnSub">-</button>
+       <button onclick="Mul()" id="btnMul">*</button>
+       <button onclick="Div()" id="btnDiv">/</button>
+       <br/><br/>
+       <label id = "rslt">Result</label>
+            
+       </span>
+       <script>
+           
+        </script>
+    </head>
+    <body>
+        <script>
+             
+            function Add() {
+            var n1El = document.getElementById('fNum'); //n1El.value is a string datatype
+            console.log(n1El.value)
+            var n2El= document.getElementById('sNum');
+            console.log(n2El.value)
+
+            // parseFloat or parseInt converts the string to number datatype 
+            // only numbers can be +, _,* or /
+            var n1 = parseFloat(n1El.value) 
+            console.log(n1)
+            var n2 = parseFloat(n2El.value)
+            console.log(n2) 
+            
+            var sum = n1 + n2
+            console.log(sum)
+
+            // instead of "Result" on label with id rslt "Sum is ----" is printed on webpage
+            document.getElementById('rslt').innerText='Sum is '+sum
+
+            }
+
+              
+            function Sub() {
+            var n1El = document.getElementById('fNum');
+            console.log(n1El.value)
+            var n2El= document.getElementById('sNum');
+            console.log(n2El.value)
+            var n1 = parseFloat(n1El.value)
+            console.log(n1)
+            var n2 = parseFloat(n2El.value)
+            console.log(n2) 
+            
+            var dif = n1 - n2
+            console.log(dif)
+            document.getElementById('rslt').innerText='Difference is '+dif
+
+            }
+
+            function Mul() {
+            var n1El = document.getElementById('fNum');
+            console.log(n1El.value)
+            var n2El= document.getElementById('sNum');
+            console.log(n2El.value)
+            var n1 = parseFloat(n1El.value)
+            console.log(n1)
+            var n2 = parseFloat(n2El.value)
+            console.log(n2) 
+            
+            var prdt = n1 * n2
+            console.log(prdt)
+            document.getElementById('rslt').innerText='Product is '+prdt
+
+            }
+
+            function Div() {
+            var n1El = document.getElementById('fNum');
+            console.log(n1El.value)
+            var n2El= document.getElementById('sNum');
+            console.log(n2El.value)
+            var n1 = parseFloat(n1El.value)
+            console.log(n1)
+            var n2 = parseFloat(n2El.value)
+            console.log(n2) 
+            
+            var quo = n1 / n2
+            console.log(quo)
+            document.getElementById('rslt').innerText='Quotient is '+quo
+
+            }
+        </script>
+       
+    </body>
+</html>

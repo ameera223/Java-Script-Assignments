@@ -1,0 +1,66 @@
+<html>
+    <head>
+FETCH Assignment : 
+Create a page to create new product and call fakestore POST API.
+<div class = "products">
+
+
+<span>
+    <br/><br/><br/><br/>Please provide the following details of the new product to be added.<br/><br/>
+        Title : <input type = "text" id="title"/><br/><br/> 
+        Price : <input type = "number" id="price"/><br/><br/> 
+        Description : <input type = "text" id="description"/><br/><br/> 
+        Category : <input type = "text" id="category"/><br/><br/> 
+        Image :<input type="file" id="imageIn" accept="image/*" required><br/><br/> 
+        <button onclick="createProd()" id="btnAdd">Add Product</button><br/><br/>
+        <label id = "details"></label>
+    
+</span>
+</div>
+
+<script>
+    
+    async function createProd(){
+
+            const file = document.getElementById('imageIn').files[0];
+            const imageUrl = URL.createObjectURL(file);
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl;
+            imgElement.style.maxWidth = '75%';
+
+        var product = {
+    "title": document.getElementById('title').value,
+    "price": parseFloat(document.getElementById('price').value),
+    "description": document.getElementById('description').value,
+    "category": document.getElementById('category').value,
+    "image": imgElement.src
+    }
+
+        var response = await fetch('https://fakestoreapi.com/products',{
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify(product)
+        });
+        
+        var data = await response.json();
+        console.log('Created Data : ',data);
+
+
+        document.getElementById('details').innerHTML = '<div>' 
+                +'<h2>'+ "Title: "+data.title +'</h2>'
+                +'<h2> <img height ="100px"src="' +data.image+ '"/>'
+                +'<h2>'+ "Price: $ "+ data.price +'</h2>' 
+                +'<h2>'+ "Category: "+data.category +'</h2>'
+                +'<h2>'+ "Description: "+ data.description +'</h2>'
+                +'</div>'
+        
+    }
+    
+</script>
+    </head>
+    <body>
+       
+    </body>
+</html>

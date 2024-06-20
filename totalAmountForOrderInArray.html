@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Totals</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #orders {
+      width: 800px;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    #orders table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    #orders th, #orders td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="orders">
+    <h2>Order Totals</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Order Number</th>
+          <th>Customer Name</th>
+          <th>Total Amount</th>
+        </tr>
+      </thead>
+      <tbody id="order-list">
+        <!-- orders will be listed here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    var orders = [{
+      orderNumber: 10011,
+      customerName: 'Vineesh',
+      customerMobile: '+911222111',
+      orderLineItems: [
+        {
+          productId: 11,
+          productName: 'iPhone 14 Pro',
+          quantity: 1,
+          price: 80000
+        },
+        {
+          productId: 19,
+          productName: 'iPhone 14 Pro Insurance',
+          quantity: 1,
+          price: 25000
+        },
+        {
+          productId: 11,
+          productName: 'iPhone 14 Pro Cover',
+          quantity: 1,
+          price: 2500
+        }
+      ]
+    }];
+
+    for (let i = 0; i < orders.length; i++) {
+      let order = orders[i];
+      let totalAmount = 0;
+
+      for (let j = 0; j < order.orderLineItems.length; j++) {
+        let orderLineItem = order.orderLineItems[j];
+        totalAmount += orderLineItem.price * orderLineItem.quantity;
+      }
+
+      let orderList = document.getElementById('order-list');
+      let newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td>${order.orderNumber}</td>
+        <td>${order.customerName}</td>
+        <td>${totalAmount}</td>
+      `;
+      orderList.appendChild(newRow);
+    }
+  </script>
+</body>
+</html>
